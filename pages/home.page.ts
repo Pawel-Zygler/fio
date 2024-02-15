@@ -4,7 +4,8 @@ export class HomePage {
   page: Page;
   getInTouchBtn: Locator;
   FinanceAndESGdropdown: Locator;
-  ESGKPIEngineDropdownOption: Locator;
+  keyFeaturesHeader: Locator;
+  masterESGKPIManagementHeader: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -12,7 +13,8 @@ export class HomePage {
       .locator("#masthead")
       .getByRole("link", { name: "Get in touch" });
     this.FinanceAndESGdropdown = page.locator("#menu-item-29979");
-    this.ESGKPIEngineDropdownOption = page.locator("#menu-item-32083");
+    this.masterESGKPIManagementHeader = page.locator("#text-1681411785");
+    this.keyFeaturesHeader = page.locator("#col-1967053932");
   }
 
   async visit() {

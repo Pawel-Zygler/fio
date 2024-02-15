@@ -37,6 +37,6 @@ jobs:
       - name: Run Smoke Tests
         if: github.event.inputs.smokePlease == 'true'
         run: npm run test:smoke
-      - name: Run Playwright tests
+      - name: Run fio tests
         if: github.event.inputs.regressionPlease != 'true' && github.event.inputs.smokePlease != 'true'
         run: npm run test
