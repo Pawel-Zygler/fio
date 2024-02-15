@@ -44,6 +44,6 @@ test.describe("fioneer tests", () => {
       .locator("#email-550b0952-ea48-4b4d-b0cc-89ce87f17153")
       .fill("321312");
 
-    expect(contactPage.contactUsHeader).toBeVisible();
+    await expect(contactPage.contactUsHeader).toBeVisible();
   });
 });
