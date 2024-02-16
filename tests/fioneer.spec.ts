@@ -30,23 +30,20 @@ test.describe("fioneer tests", () => {
     await expect(esgKpiManagementPage.keyFeaturesHeader).toHaveText("Key features");
   });
 
-  test.skip("Test 3 @regression - verify validation message", async ({
-    page,
-    contactPage,
-    homePage,
-  }) => {
+  test("Test 3 @regression - verify validation message", async ({ page, homePage }) => {
     await homePage.getInTouchBtn.click();
-    await page.frames();
 
     await expect(page).toHaveURL("https://www.sapfioneer.com/contact/");
 
-    await page
+    const email = await page
       .frameLocator("#hs-form-iframe-0")
-      .locator("#email-550b0952-ea48-4b4d-b0cc-89ce87f17153")
-      .fill("321312");
+      .locator('input[name="email"]');
+    await email.fill("321321");
 
-    await expect(contactPage.contactUsHeader).toBeVisible();
+    const emailValidationMsg = await page
+      .frameLocator("#hs-form-iframe-0")
+      .locator(".hs-error-msg.hs-main-font-element");
 
-    //test this passing tests somehow, search for text and see it passes, then change to other text
+    await expect(emailValidationMsg).toHaveText("Email must be formatted correctly.");
   });
 });
