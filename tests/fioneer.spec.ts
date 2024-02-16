@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 import { test } from "../initialisations";
 
-test.describe("fioneer validations @smoke", () => {
+test.describe("fioneer validations", () => {
   test.beforeEach(async ({ homePage }) => {
     await homePage.visit();
   });
@@ -13,7 +13,7 @@ test.describe("fioneer validations @smoke", () => {
     );
   });
 
-  test("Redirects to the correct page @regression", async ({
+  test("Redirects to the correct page", async ({
     page,
     homePage,
     esgKpiManagementPage,
@@ -29,11 +29,7 @@ test.describe("fioneer validations @smoke", () => {
     await expect(esgKpiManagementPage.keyFeaturesHeader).toHaveText("Key features");
   });
 
-  test("Verifies email format error message @regression", async ({
-    page,
-    homePage,
-    contactPage,
-  }) => {
+  test("Verifies email format error message", async ({ page, homePage, contactPage }) => {
     await homePage.getInTouchBtn.click();
     await expect(page).toHaveURL("https://www.sapfioneer.com/contact/");
     await contactPage.fillEmailFormWithInvalidData();
