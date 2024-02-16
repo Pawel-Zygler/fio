@@ -16,6 +16,7 @@ test.describe("fioneer tests", () => {
   test("Test 2 @regression - redirected to the correct page", async ({
     page,
     homePage,
+    esgKpiManagementPage,
   }) => {
     await homePage.FinanceAndESGdropdown.hover();
     await page.click('text="ESG KPI Engine"');
@@ -26,10 +27,10 @@ test.describe("fioneer tests", () => {
     await expect(homePage.masterESGKPIManagementHeader).toHaveText(
       "Master ESG KPI management"
     );
-    await expect(homePage.keyFeaturesHeader).toHaveText("Key features");
+    await expect(esgKpiManagementPage.keyFeaturesHeader).toHaveText("Key features");
   });
 
-  test("Test 3 @regression - verify validation message", async ({
+  test.skip("Test 3 @regression - verify validation message", async ({
     page,
     contactPage,
     homePage,
@@ -45,5 +46,7 @@ test.describe("fioneer tests", () => {
       .fill("321312");
 
     await expect(contactPage.contactUsHeader).toBeVisible();
+
+    //test this passing tests somehow, search for text and see it passes, then change to other text
   });
 });

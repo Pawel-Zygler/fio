@@ -13,8 +13,9 @@ export class HomePage {
       .locator("#masthead")
       .getByRole("link", { name: "Get in touch" });
     this.FinanceAndESGdropdown = page.locator("#menu-item-29979");
-    this.masterESGKPIManagementHeader = page.locator("#text-1681411785");
-    this.keyFeaturesHeader = page.locator("#col-1967053932");
+    this.masterESGKPIManagementHeader = page.getByRole("heading", {
+      name: "Master ESG KPI management",
+    });
   }
 
   async visit() {
