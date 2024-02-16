@@ -4,7 +4,6 @@ export class HomePage {
   page: Page;
   getInTouchBtn: Locator;
   FinanceAndESGdropdown: Locator;
-  keyFeaturesHeader: Locator;
   masterESGKPIManagementHeader: Locator;
 
   constructor(page: Page) {
